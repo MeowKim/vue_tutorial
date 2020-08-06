@@ -21,8 +21,8 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/qna', function () {
-    return view('vue.qna');
+Route::get('/watcher', function () {
+    return view('vue.watcher');
 });
 
 Route::get('/class-bindings', function () {
