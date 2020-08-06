@@ -24,3 +24,7 @@ Route::get('/welcome', function () {
 Route::get('/qna', function () {
     return view('vue.qna');
 });
+
+Route::get('/class-bindings', function () {
+    return view('vue.class-bindings');
+});
