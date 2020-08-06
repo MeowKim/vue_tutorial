@@ -38341,10 +38341,10 @@ var render = function() {
       [_vm._v("Bind multiple classes")]
     ),
     _vm._v(" "),
-    _c("div", { class: _vm.classObj }, [_vm._v("Bind class with object")]),
+    _c("div", { class: _vm.classObj }, [_vm._v("Bind class to class object")]),
     _vm._v(" "),
     _c("div", { class: _vm.classObjFromComputed }, [
-      _vm._v("Bind class with object returned by computed property")
+      _vm._v("Bind class to class object returned by computed property")
     ])
   ])
 }

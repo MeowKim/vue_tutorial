@@ -2,8 +2,8 @@
 	<section>
 		<div :class="{ active: isActive }">Bind class</div>
 		<div class="static" :class="{ active: isActive, 'text-danger': hasError }">Bind multiple classes</div>
-		<div :class="classObj">Bind class with object</div>
-		<div :class="classObjFromComputed">Bind class with object returned by computed property</div>
+		<div :class="classObj">Bind class to class object</div>
+		<div :class="classObjFromComputed">Bind class to class object returned by computed property</div>
 	</section>
 </template>
 
