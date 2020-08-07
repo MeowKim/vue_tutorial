@@ -9,7 +9,16 @@
 	<!-- Fonts -->
     <link href="//fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+	<style>
+		code {
+			margin: 0 2px;
+			padding: 3px 5px;
+			color: #d63200;
+			background-color: #ccc;			
+			border-radius: 2px;
+		}
+	</style>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <title>{{ config('app.name') }}</title>

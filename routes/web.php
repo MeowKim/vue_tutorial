@@ -32,3 +32,7 @@ Route::get('/class-bindings', function () {
 Route::get('/style-bindings', function () {
     return view('vue.style-bindings');
 });
+
+Route::get('/conditional-rendering', function () {
+    return view('vue.conditional-rendering');
+});
