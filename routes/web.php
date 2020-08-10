@@ -40,3 +40,7 @@ Route::get('/conditional-rendering', function () {
 Route::get('/list-rendering', function () {
     return view('vue.list-rendering');
 });
+
+Route::get('/event-handling', function () {
+    return view('vue.event-handling');
+});
