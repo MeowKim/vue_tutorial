@@ -48,3 +48,7 @@ Route::get('/event-handling', function () {
 Route::get('/form-input-bindings', function () {
     return view('vue.form-input-bindings');
 });
+
+Route::get('/components', function () {
+    return view('vue.components');
+});
