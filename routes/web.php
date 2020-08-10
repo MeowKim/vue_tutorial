@@ -36,3 +36,7 @@ Route::get('/style-bindings', function () {
 Route::get('/conditional-rendering', function () {
     return view('vue.conditional-rendering');
 });
+
+Route::get('/list-rendering', function () {
+    return view('vue.list-rendering');
+});

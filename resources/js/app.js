@@ -24,6 +24,7 @@ Vue.component('watcher', require('./components/Watcher.vue').default);
 Vue.component('class-bindings', require('./components/Class-bindings.vue').default);
 Vue.component('style-bindings', require('./components/Style-bindings.vue').default);
 Vue.component('conditional-rendering', require('./components/Conditional-rendering.vue').default);
+Vue.component('list-rendering', require('./components/List-rendering.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
