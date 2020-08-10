@@ -3,6 +3,7 @@
 		<h1>Text</h1>
 		<input placeholder="Edit me" v-model="message">
 		<p>Message is: {{ message }}</p>
+		<hr>
 
 		<h1>Multiline text</h1>
 		<textarea placeholder="Add mutiple lines" v-model="ml_message"></textarea>
@@ -13,6 +14,7 @@
 		<h1>Checkbox</h1>
 		<input type="checkbox" id="checkbox" v-model="checked">
 		<label for="checkbox">{{ checked }}</label>
+		<hr>
 
 		<h1>Multiple checkboxes</h1>
 		<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
@@ -43,6 +45,7 @@
 		</select>
 		<br>
 		<span>Selected: {{ selected }}</span>
+		<hr>
 
 		<h1>Multiple select</h1>
 		<select v-model="ml_selected" multiple>
@@ -52,6 +55,7 @@
 		</select>
 		<br>
 		<span>Selected: {{ ml_selected }}</span>
+		<hr>
 
 		<h1>Dynamic options rendered with <code>v-for</code></h1>
 		<select v-model="d_selected">

@@ -1,11 +1,45 @@
 <template>
 	<section>
-		<div :class="{ active: isActive }">Bind class</div>
-		<div class="static" :class="{ active: isActive, 'text-danger': hasError }">Bind multiple classes</div>
-		<div :class="classObj">Bind class to class object</div>
-		<div :class="classObjFromComputed">Bind class to class object returned by computed property</div>
+		<h1>Binding HTML Classes</h1>
+		<div :class="{ active: isActive }">Example 01</div>
+		<hr>
+
+		<h1>Binding multiple classes</h1>
+		<div class="static" :class="{ active: isActive, 'text-danger': hasError }">Example 02</div>
+		<hr>
+
+		<h1>Binding to a class object</h1>
+		<div :class="classObject">Example 03</div>
+		<hr>
+
+		<h1>Binding to a class object returned by computed property</h1>
+		<div :class="classObjectFromComputed">Example 04</div>
+		<hr>
 	</section>
 </template>
+
+<script>
+export default {
+	data: function () {
+		return {
+			isActive: true,
+			hasError: true,
+			classObject: {
+				active: true,
+				'text-danger': true,
+			}
+		}
+	},
+	computed: {
+		classObjectFromComputed: function() {
+			return {
+				active: this.isActive && !this.hasError,
+				'text-danger': this.hasError
+			}
+		}
+	}
+}
+</script>
 
 <style scoped>
 .static {
@@ -20,26 +54,3 @@
 	color: #f00;
 }
 </style>
-
-<script>
-export default {
-	data: function () {
-		return {
-			isActive: true,
-			hasError: true,
-			classObj: {
-				active: true,
-				'text-danger': true,
-			}
-		}
-	},
-	computed: {
-		classObjFromComputed: function() {
-			return {
-				active: this.isActive && !this.hasError,
-				'text-danger': this.hasError
-			}
-		}
-	}
-}
-</script>

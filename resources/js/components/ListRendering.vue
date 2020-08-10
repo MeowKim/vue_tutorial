@@ -4,6 +4,7 @@
 		<ul>
 			<li v-for="item in items" :key="item.message">{{ item.message }}</li>
 		</ul>
+		<hr>
 
 		<h1>Using optional second argument for the index</h1>
 		<ul>
@@ -11,21 +12,25 @@
 				{{ parentMessage }} - {{ index }} - {{ item.message }}
 			</li>
 		</ul>
+		<hr>
 
 		<h1><code>v-for</code> with an object</h1>
 		<ul>
 			<li v-for="value in object" :key="value">{{ value }}</li>
 		</ul>
+		<hr>
 
 		<h1>Providing second argument for the property's name</h1>
 		<div v-for="(value, name) in object" :key="name">
 			{{  name }} : {{ value }}
 		</div>
+		<hr>
 
 		<h1>Providing another argument for the index</h1>
 		<div v-for="(value, name, index) in object" :key="index">
 			{{ index }}. {{  name }} : {{ value }}
 		</div>
+		<hr>
 	</section>
 </template>
 

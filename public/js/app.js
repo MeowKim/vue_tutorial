@@ -1928,22 +1928,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       isActive: true,
       hasError: true,
-      classObj: {
+      classObject: {
         active: true,
         'text-danger': true
       }
     };
   },
   computed: {
-    classObjFromComputed: function classObjFromComputed() {
+    classObjectFromComputed: function classObjectFromComputed() {
       return {
         active: this.isActive && !this.hasError,
         'text-danger': this.hasError
@@ -2234,6 +2231,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2373,6 +2374,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2440,6 +2445,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2469,6 +2479,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38852,7 +38867,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("div", { class: { active: _vm.isActive } }, [_vm._v("Bind class")]),
+    _c("h1", [_vm._v("Binding HTML Classes")]),
+    _vm._v(" "),
+    _c("div", { class: { active: _vm.isActive } }, [_vm._v("Example 01")]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("h1", [_vm._v("Binding multiple classes")]),
     _vm._v(" "),
     _c(
       "div",
@@ -38860,14 +38881,24 @@ var render = function() {
         staticClass: "static",
         class: { active: _vm.isActive, "text-danger": _vm.hasError }
       },
-      [_vm._v("Bind multiple classes")]
+      [_vm._v("Example 02")]
     ),
     _vm._v(" "),
-    _c("div", { class: _vm.classObj }, [_vm._v("Bind class to class object")]),
+    _c("hr"),
     _vm._v(" "),
-    _c("div", { class: _vm.classObjFromComputed }, [
-      _vm._v("Bind class to class object returned by computed property")
-    ])
+    _c("h1", [_vm._v("Binding to a class object")]),
+    _vm._v(" "),
+    _c("div", { class: _vm.classObject }, [_vm._v("Example 03")]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("h1", [
+      _vm._v("Binding to a class object returned by computed property")
+    ]),
+    _vm._v(" "),
+    _c("div", { class: _vm.classObjectFromComputed }, [_vm._v("Example 04")]),
+    _vm._v(" "),
+    _c("hr")
   ])
 }
 var staticRenderFns = []
@@ -39306,9 +39337,13 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
     _c("h1", [_vm._v("Method event handlers")]),
     _vm._v(" "),
     _c("div", [_c("button", { on: { click: _vm.greet } }, [_vm._v("Greet")])]),
+    _vm._v(" "),
+    _c("hr"),
     _vm._v(" "),
     _c("h1", [_vm._v("methods in inline handlers")]),
     _vm._v(" "),
@@ -39338,6 +39373,8 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
     _c("h1", [_vm._v("passing DOM event into the method")]),
     _vm._v(" "),
     _c("div", [
@@ -39352,7 +39389,9 @@ var render = function() {
         },
         [_vm._v("Submit")]
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c("hr")
   ])
 }
 var staticRenderFns = []
@@ -39450,6 +39489,8 @@ var render = function() {
     _vm._v(" "),
     _c("p", [_vm._v("Message is: " + _vm._s(_vm.message))]),
     _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
     _c("h1", [_vm._v("Multiline text")]),
     _vm._v(" "),
     _c("textarea", {
@@ -39520,6 +39561,8 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("label", { attrs: { for: "checkbox" } }, [_vm._v(_vm._s(_vm.checked))]),
+    _vm._v(" "),
+    _c("hr"),
     _vm._v(" "),
     _c("h1", [_vm._v("Multiple checkboxes")]),
     _vm._v(" "),
@@ -39743,6 +39786,8 @@ var render = function() {
     _vm._v(" "),
     _c("span", [_vm._v("Selected: " + _vm._s(_vm.selected))]),
     _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
     _c("h1", [_vm._v("Multiple select")]),
     _vm._v(" "),
     _c(
@@ -39785,6 +39830,8 @@ var render = function() {
     _c("br"),
     _vm._v(" "),
     _c("span", [_vm._v("Selected: " + _vm._s(_vm.ml_selected))]),
+    _vm._v(" "),
+    _c("hr"),
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
@@ -39877,6 +39924,8 @@ var render = function() {
         0
       ),
       _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c("h1", [_vm._v("Using optional second argument for the index")]),
       _vm._v(" "),
       _c(
@@ -39897,6 +39946,8 @@ var render = function() {
         0
       ),
       _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
       _c(
@@ -39907,6 +39958,8 @@ var render = function() {
         0
       ),
       _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c("h1", [_vm._v("Providing second argument for the property's name")]),
       _vm._v(" "),
       _vm._l(_vm.object, function(value, name) {
@@ -39914,6 +39967,8 @@ var render = function() {
           _vm._v("\n\t\t" + _vm._s(name) + " : " + _vm._s(value) + "\n\t")
         ])
       }),
+      _vm._v(" "),
+      _c("hr"),
       _vm._v(" "),
       _c("h1", [_vm._v("Providing another argument for the index")]),
       _vm._v(" "),
@@ -39929,7 +39984,9 @@ var render = function() {
               "\n\t"
           )
         ])
-      })
+      }),
+      _vm._v(" "),
+      _c("hr")
     ],
     2
   )
@@ -39973,15 +40030,21 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
+    _c("h1", [_vm._v("Binding inline styles")]),
+    _vm._v(" "),
     _c(
       "div",
       { style: { color: _vm.activeColor, fontSize: _vm.fontSize + "px" } },
-      [_vm._v("Bind styles")]
+      [_vm._v("Example 01")]
     ),
     _vm._v(" "),
-    _c("div", { style: _vm.styleObject }, [
-      _vm._v("Bind styles to style object")
-    ])
+    _c("hr"),
+    _vm._v(" "),
+    _c("h1", [_vm._v("Binding to style object")]),
+    _vm._v(" "),
+    _c("div", { style: _vm.styleObject }, [_vm._v("Example 02")]),
+    _vm._v(" "),
+    _c("hr")
   ])
 }
 var staticRenderFns = []
