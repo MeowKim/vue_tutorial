@@ -44,3 +44,7 @@ Route::get('/list-rendering', function () {
 Route::get('/event-handling', function () {
     return view('vue.event-handling');
 });
+
+Route::get('/form-input-bindings', function () {
+    return view('vue.form-input-bindings');
+});

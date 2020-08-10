@@ -26,6 +26,7 @@ Vue.component('style-bindings', require('./components/StyleBindings.vue').defaul
 Vue.component('conditional-rendering', require('./components/ConditionalRendering.vue').default);
 Vue.component('list-rendering', require('./components/ListRendering.vue').default);
 Vue.component('event-handling', require('./components/EventHandling.vue').default);
+Vue.component('form-input-bindings', require('./components/FormInputBindings.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
