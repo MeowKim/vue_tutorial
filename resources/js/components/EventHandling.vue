@@ -26,7 +26,7 @@
 
 <script>
 export default {
-	data() {
+	data: function () {
 		return {
 			counter: 0,
 			name: 'Vue.js'

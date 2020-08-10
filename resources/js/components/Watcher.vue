@@ -18,7 +18,7 @@ import axios from 'axios'
 import lodash from 'lodash'
 
 export default {
-	data() {
+	data: function () {
 		return {
 			question: '',
 			answer: '질문을 하기 전까지는 대답할 수 없습니다.'

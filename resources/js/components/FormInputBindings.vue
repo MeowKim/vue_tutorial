@@ -67,7 +67,7 @@
 
 <script>
 export default {
-	data() {
+	data: function () {
 		return {
 			message: "",
 			ml_message: "",

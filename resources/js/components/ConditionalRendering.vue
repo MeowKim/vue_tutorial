@@ -53,7 +53,7 @@
 
 <script>
 export default {
-	data() {
+	data: function () {
 		return {
 			isAwesome: false,
 			isOk: true,

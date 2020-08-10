@@ -7,7 +7,7 @@
 
 <script>
 export default {
-	data() {
+	data: function () {
 		return {
 			activeColor: 'red',
 			fontSize: 30,
