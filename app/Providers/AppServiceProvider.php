@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $routes = collect(Route::getRoutes())
                 ->reject(function ($route) {
-                    return preg_match("/^\_ignition\//", $route->uri) || preg_match("/^api\//", $route->uri);
+                    return preg_match("/^\_ignition\//", $route->uri) || preg_match("/^api\//", $route->uri) || preg_match("/^\/$/", $route->uri);
                 })
                 ->map(function ($route) {
                     return array(
