@@ -11,6 +11,10 @@
     <!-- Styles -->
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 	<style>
+		.navbar-nav {
+			flex-wrap: wrap;
+		}
+		
 		code {
 			margin: 0 2px;
 			padding: 3px 5px;
