@@ -54,3 +54,7 @@ Route::get('/components', function () {
 Route::get('/keep-alive', function () {
     return view('vue.keep-alive');
 })->name('Keep Alive');
+
+Route::get('/async-components', function () {
+    return view('vue.async-components');
+})->name('Async Components');
