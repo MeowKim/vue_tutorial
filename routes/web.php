@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,40 +16,37 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('vue.index');
-});
+})->name('Home');
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
+// Routes for examples
 Route::get('/watcher', function () {
     return view('vue.watcher');
-});
+})->name('Watcher');
 
 Route::get('/class-bindings', function () {
     return view('vue.class-bindings');
-});
+})->name('Class Bindings');
 
 Route::get('/style-bindings', function () {
     return view('vue.style-bindings');
-});
+})->name('Style Bindings');
 
 Route::get('/conditional-rendering', function () {
     return view('vue.conditional-rendering');
-});
+})->name('Conditional Rendering');
 
 Route::get('/list-rendering', function () {
     return view('vue.list-rendering');
-});
+})->name('List Rendering');
 
 Route::get('/event-handling', function () {
     return view('vue.event-handling');
-});
+})->name('Event Handling');
 
 Route::get('/form-input-bindings', function () {
     return view('vue.form-input-bindings');
-});
+})->name('Form Input Bindings');
 
 Route::get('/components', function () {
     return view('vue.components');
-});
+})->name('Components');
