@@ -50,3 +50,7 @@ Route::get('/form-input-bindings', function () {
 Route::get('/components', function () {
     return view('vue.components');
 })->name('Components');
+
+Route::get('/keep-alive', function () {
+    return view('vue.keep-alive');
+})->name('Keep Alive');
