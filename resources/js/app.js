@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('./bootstrap')
 
-window.Vue = require('vue');
+window.Vue = require('vue')
 
 /**
  * The following block of code may be used to automatically register your
@@ -16,18 +16,8 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('watcher', require('./components/Watcher.vue').default);
-Vue.component('class-bindings', require('./components/ClassBindings.vue').default);
-Vue.component('style-bindings', require('./components/StyleBindings.vue').default);
-Vue.component('conditional-rendering', require('./components/ConditionalRendering.vue').default);
-Vue.component('list-rendering', require('./components/ListRendering.vue').default);
-Vue.component('event-handling', require('./components/EventHandling.vue').default);
-Vue.component('form-input-bindings', require('./components/FormInputBindings.vue').default);
-Vue.component('components', require('./components/Components.vue').default);
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,4 +27,4 @@ Vue.component('components', require('./components/Components.vue').default);
 
 const app = new Vue({
     el: '#app',
-});
+})

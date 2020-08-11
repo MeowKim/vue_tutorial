@@ -52265,6 +52265,47 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js sync recursive \\.vue$/":
+/*!***********************************!*\
+  !*** ./resources/js sync \.vue$/ ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./components/ClassBindings.vue": "./resources/js/components/ClassBindings.vue",
+	"./components/Components.vue": "./resources/js/components/Components.vue",
+	"./components/ConditionalRendering.vue": "./resources/js/components/ConditionalRendering.vue",
+	"./components/EventHandling.vue": "./resources/js/components/EventHandling.vue",
+	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
+	"./components/FormInputBindings.vue": "./resources/js/components/FormInputBindings.vue",
+	"./components/ListRendering.vue": "./resources/js/components/ListRendering.vue",
+	"./components/StyleBindings.vue": "./resources/js/components/StyleBindings.vue",
+	"./components/Watcher.vue": "./resources/js/components/Watcher.vue"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/js sync recursive \\.vue$/";
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -52287,18 +52328,12 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('watcher', __webpack_require__(/*! ./components/Watcher.vue */ "./resources/js/components/Watcher.vue")["default"]);
-Vue.component('class-bindings', __webpack_require__(/*! ./components/ClassBindings.vue */ "./resources/js/components/ClassBindings.vue")["default"]);
-Vue.component('style-bindings', __webpack_require__(/*! ./components/StyleBindings.vue */ "./resources/js/components/StyleBindings.vue")["default"]);
-Vue.component('conditional-rendering', __webpack_require__(/*! ./components/ConditionalRendering.vue */ "./resources/js/components/ConditionalRendering.vue")["default"]);
-Vue.component('list-rendering', __webpack_require__(/*! ./components/ListRendering.vue */ "./resources/js/components/ListRendering.vue")["default"]);
-Vue.component('event-handling', __webpack_require__(/*! ./components/EventHandling.vue */ "./resources/js/components/EventHandling.vue")["default"]);
-Vue.component('form-input-bindings', __webpack_require__(/*! ./components/FormInputBindings.vue */ "./resources/js/components/FormInputBindings.vue")["default"]);
-Vue.component('components', __webpack_require__(/*! ./components/Components.vue */ "./resources/js/components/Components.vue")["default"]);
+var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
+
+files.keys().map(function (key) {
+  return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -52447,15 +52482,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/components/Components.vue ***!
   \************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_vue_vue_type_template_id_434a967e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components.vue?vue&type=template&id=434a967e& */ "./resources/js/components/Components.vue?vue&type=template&id=434a967e&");
 /* harmony import */ var _Components_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components.vue?vue&type=script&lang=js& */ "./resources/js/components/Components.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Components_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Components_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _Components_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Components.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Components_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Components.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52487,7 +52521,7 @@ component.options.__file = "resources/js/components/Components.vue"
 /*!*************************************************************************!*\
   !*** ./resources/js/components/Components.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
