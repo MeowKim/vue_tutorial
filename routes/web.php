@@ -62,3 +62,7 @@ Route::get('/async-components', function () {
 Route::get('/transitions', function () {
     return view('vue.transitions');
 })->name('Transitions');
+
+Route::get('/state-transitions', function () {
+    return view('vue.state-transitions');
+})->name('State Transitions');

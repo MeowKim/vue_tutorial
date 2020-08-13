@@ -31,6 +31,9 @@
     <!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+	<script src="https://cdn.jsdelivr.net/npm/color-js@1.0.3"></script>
     <title>{{ config('app.name') }}</title>
 </head>
 <body>
