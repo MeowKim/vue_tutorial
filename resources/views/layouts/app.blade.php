@@ -23,6 +23,10 @@
 			background-color: #ccc;			
 			border-radius: 2px;
 		}
+
+		.container {
+			margin-bottom: 50px;
+		}
 	</style>
     <!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>

@@ -2716,6 +2716,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2850,7 +2852,7 @@ __webpack_require__.r(__webpack_exports__);
         duration: this.fadeInDuration,
         complete: function complete() {
           done();
-          if (!vm.stop) vm.dynamic_show = false;
+          if (!vm.dynamic_stop) vm.dynamic_show = false;
         }
       });
     },
@@ -40946,6 +40948,8 @@ var render = function() {
         0
       ),
       _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c("h1", [_vm._v("Dynamic Transitions")]),
       _vm._v("\n\tFade In: "),
       _c("input", {
@@ -40984,7 +40988,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm.stop
+      _vm.dynamic_stop
         ? _c(
             "button",
             {
@@ -41020,7 +41024,9 @@ var render = function() {
           }
         },
         [_vm.dynamic_show ? _c("p", [_vm._v("hello")]) : _vm._e()]
-      )
+      ),
+      _vm._v(" "),
+      _c("hr")
     ],
     1
   )

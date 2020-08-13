@@ -82,15 +82,17 @@
 			>
 			<li v-for="(item, index) in computedList" :key="item.msg" :data-index="index">{{ item.msg }}</li>
 		</transition-group>
+		<hr>
 
 		<h1>Dynamic Transitions</h1>
 		Fade In: <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration">
 		Fade Out: <input type="range" v-model="fadeOutDuration" min="0" :max="maxFadeDuration">
-		<button v-if="stop" @click="dynamic_stop = false; dynamic_show = false">Start animating</button>
+		<button v-if="dynamic_stop" @click="dynamic_stop = false; dynamic_show = false">Start animating</button>
 		<button v-else @click="dynamic_stop = true">Stop it!</button>
 		<transition :css="false" @before-enter="beforeEnterDynamic" @enter="enterDynamic" @leave="leaveDynamic">
 			<p v-if="dynamic_show">hello</p>
 		</transition>
+		<hr>
 	</section>
 </template>
 
@@ -187,7 +189,7 @@ export default {
 			var vm = this
 			Velocity(el, { opacity: 1 }, { duration: this.fadeInDuration, complete: function () {
 				done()
-				if (!vm.stop) vm.dynamic_show = false
+				if (!vm.dynamic_stop) vm.dynamic_show = false
 			}})
 		},
 		leaveDynamic: function (el, done) {
