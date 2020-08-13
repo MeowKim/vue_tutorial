@@ -42,10 +42,10 @@
 var Color = net.brehaut.Color
 
 export default {
-	data: function () {
+	data: function() {
 		var defaultSlides = 10
 		var stats = Array.apply(null, { length: defaultSlides })
-			.map(function () { return 100 })
+			.map(function() { return 100 })
 
 		return {
 			number: 0,
@@ -68,17 +68,17 @@ export default {
 			secondNumber: 40
 		}
 	},
-	created: function () {
+	created: function() {
 		this.tweenedColor = Object.assign({}, this.color)
 	},
-	mounted: function () {
+	mounted: function() {
 		this.resetInterval()
 	},
 	computed: {
-		animatedNumber: function () {
+		animatedNumber: function() {
 			return this.tweenedNumber.toFixed(0)
 		},
-		tweenedCSSColor: function () {
+		tweenedCSSColor: function() {
 			return new Color({
 				red: this.tweenedColor.red,
 				green: this.tweenedColor.green,
@@ -86,15 +86,15 @@ export default {
 				alpha: this.tweenedColor.alpha
 			}).toCSS()
 		},
-		result: function () {
+		result: function() {
 			return this.firstNumber + this.secondNumber
 		}
 	},
 	watch: {
-		number: function (newValue) {
+		number: function(newValue) {
 			TweenLite.to(this.$data, 0.5, { tweenedNumber: newValue })
 		},
-		color: function () {
+		color: function() {
 			function animate () {
 				if (TWEEN.update()) {
 					requestAnimationFrame(animate)
@@ -106,7 +106,7 @@ export default {
 				.start()
 			animate()
 		},
-		slides: function (newSlides, oldSlides) {
+		slides: function(newSlides, oldSlides) {
 			var slidesDifference = newSlides - oldSlides
 
 			if (slidesDifference > 0) {
@@ -121,34 +121,34 @@ export default {
 				}
 			}
 		},
-		stats: function (newStats) {
+		stats: function(newStats) {
 			TweenLite.to(this.$data, this.updateInterval / 1000, { points: generatePoints(newStats)})
 		},
-		updateInterval: function () {
+		updateInterval: function() {
 			this.resetInterval()
 		}
 	},
 	methods: {
-		updateColor: function () {
+		updateColor: function() {
 			this.color = new Color(this.colorQuery).toRGB()
 			this.colorQuery = ''
 		},
-		randomizeStats: function () {
+		randomizeStats: function() {
 			var vm = this;
 
-			this.stats = this.stats.map(function () {
+			this.stats = this.stats.map(function() {
 				return vm.newRandomValue()
 			})
 		},
-		newRandomValue: function () {
+		newRandomValue: function() {
 			return Math.ceil(this.minRadius + Math.random() * (100 - this.minRadius))
 		},
-		resetInterval: function () {
+		resetInterval: function() {
 			var vm = this
 
 			clearInterval(this.interval)
 			this.randomizeStats()
-			this.interval = setInterval(function () {
+			this.interval = setInterval(function() {
 				vm.randomizeStats()
 			}, this.updateInterval)
 		}
@@ -185,21 +185,21 @@ Vue.component('animated-integer', {
 			required: true
 		}
 	},
-	data: function () {
+	data: function() {
 		return {
 			tweeningValue: 0
 		}
 	},
-	mounted: function () {
+	mounted: function() {
 		this.tween(0, this.value)
 	},
 	watch: {
-		value: function (newValue, oldValue) {
+		value: function(newValue, oldValue) {
 			this.tween(oldValue, newValue)
 		}
 	},
 	methods: {
-		tween: function (startValue, endValue) {
+		tween: function(startValue, endValue) {
 			var vm = this
 			function animate() {
 				if (TWEEN.update()) {
@@ -209,7 +209,7 @@ Vue.component('animated-integer', {
 
 			new TWEEN.Tween({ tweeningValue: startValue })
 				.to({ tweeningValue: endValue }, 500)
-				.onUpdate(function () {
+				.onUpdate(function() {
 					vm.tweeningValue = this.tweeningValue.toFixed(0)
 				})
 				.start()

@@ -98,7 +98,7 @@
 
 <script>
 export default {
-	data: function () {
+	data: function() {
 		return {
 			show: true,
 			isEditing: false,
@@ -132,69 +132,69 @@ export default {
 		}
 	},
 	computed: {
-		computedList: function () {
+		computedList: function() {
 			var vm = this
 
-			return this.list.filter(function (item) {
+			return this.list.filter(function(item) {
 				return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
 			})
 		}
 	},
 	methods: {
-		beforeEnter: function (el) {
+		beforeEnter: function(el) {
 			el.style.opacity = 0
 			el.style.transformOrigin = 'left'
 		},
-		enter: function (el, done) {
+		enter: function(el, done) {
 			Velocity(el, { opacity: 1, fontSize: '1.4em'}, { duration: 300 })
 			Velocity(el, { fontSize: '1em'}, { complete: done})
 		},
-		leave: function (el, done) {
+		leave: function(el, done) {
 			Velocity(el, { translateX: '15px', rotateZ: '50deg'}, { duration: 600 })
 			Velocity(el, { rotateZ: '100deg'}, { loop: 2 })
 			Velocity(el, { rotateZ: '45deg', translateX: '30px', translateY: '30px', opacity: 0}, { complete: done })
 		},
-		randomIndex: function () {
+		randomIndex: function() {
 			return Math.floor(Math.random() * this.items.length)
 		},
-		add: function () {
+		add: function() {
 			this.items.splice(this.randomIndex(), 0, this.nextNum++)
 		},
-		remove: function () {
+		remove: function() {
 			this.items.splice(this.randomIndex(), 1)
 		},
-		shuffle: function () {
+		shuffle: function() {
 			this.items = _.shuffle(this.items)
 		},
-		beforeEnterStaggered: function (el) {
+		beforeEnterStaggered: function(el) {
 			el.style.opacity = 0
 			el.style.height = 0
 		},
-		enterStaggered: function (el, done) {
+		enterStaggered: function(el, done) {
 			var delay = el.dataset.index * 150
-			setTimeout(function () {
+			setTimeout(function() {
 				Velocity(el, { opacity: 1, height: '1.6em' }, { complete: done})
 			}, delay)
 		},
-		leaveStaggered: function (el, done) {
+		leaveStaggered: function(el, done) {
 			var delay = el.dataset.index * 150
-			setTimeout(function () {
+			setTimeout(function() {
 				Velocity(el, { opacity: 0, height: 0}, { complete: done })
 			}, delay)
 		},
-		beforeEnterDynamic: function (el) {
+		beforeEnterDynamic: function(el) {
 			el.style.opacity = 0
 		},
-		enterDynamic: function (el, done) {
+		enterDynamic: function(el, done) {
 			var vm = this
-			Velocity(el, { opacity: 1 }, { duration: this.fadeInDuration, complete: function () {
+			Velocity(el, { opacity: 1 }, { duration: this.fadeInDuration, complete: function() {
 				done()
 				if (!vm.dynamic_stop) vm.dynamic_show = false
 			}})
 		},
-		leaveDynamic: function (el, done) {
+		leaveDynamic: function(el, done) {
 			var vm = this
-			Velocity(el, { opacity: 0}, { duration: this.fadeOutDuration, complete: function () {
+			Velocity(el, { opacity: 0}, { duration: this.fadeOutDuration, complete: function() {
 				done()
 				vm.dynamic_show = true
 			}})

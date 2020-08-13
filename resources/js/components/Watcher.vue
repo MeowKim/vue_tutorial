@@ -18,7 +18,7 @@ import axios from 'axios'
 import lodash from 'lodash'
 
 export default {
-	data: function () {
+	data: function() {
 		return {
 			question: '',
 			answer: '질문을 하기 전까지는 대답할 수 없습니다.'
@@ -51,10 +51,10 @@ export default {
 			var vm = this
 
 			axios.get('https://yesno.wtf/api')
-				.then(function (response) {
+				.then(function(response) {
 					vm.answer = _.capitalize(response.data.answer)
 				})
-				.catch(function (error) {
+				.catch(function(error) {
 					vm.answer = '에러! API 요청에 오류가 있습니다. ' + error
 				})
 		}

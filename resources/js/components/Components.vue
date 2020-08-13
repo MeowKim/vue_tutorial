@@ -51,7 +51,7 @@
 
 <script>
 export default {
-	data: function () {
+	data: function() {
 		return {
 			posts: [
 				{ id: 1, title: 'My journey with Vue' },
@@ -75,12 +75,12 @@ export default {
 		}
 	},
 	computed: {
-		currentTabComponent: function () {
+		currentTabComponent: function() {
 			return 'tab-' + this.currentTab.toLowerCase();
 		}
 	},
 	methods: {
-		onEnlargeText: function (enlargeAmount) {
+		onEnlargeText: function(enlargeAmount) {
 			this.postFontSize += enlargeAmount
 		}
 	}

@@ -14,14 +14,14 @@
 
 <script>
 export default {
-	data: function () {
+	data: function() {
 		return {
 			tabs: ['Posts', 'Archive'],
 			currentTab: 'Posts'
 		}
 	},
 	computed: {
-		currentTabComponent: function () {
+		currentTabComponent: function() {
 			return 'tab-' + this.currentTab.toLowerCase();
 		}
 	}

@@ -36,7 +36,7 @@
 
 <script>
 export default {
-	data: function () {
+	data: function() {
 		return {
 			parentMessage: 'Parent',
 			items : [
