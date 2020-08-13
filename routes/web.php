@@ -58,3 +58,7 @@ Route::get('/keep-alive', function () {
 Route::get('/async-components', function () {
     return view('vue.async-components');
 })->name('Async Components');
+
+Route::get('/transitions', function () {
+    return view('vue.transitions');
+})->name('Transitions');

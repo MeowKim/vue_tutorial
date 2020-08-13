@@ -7,9 +7,10 @@
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito">
     <!-- Styles -->
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.5.1">
 	<style>
 		.navbar-nav {
 			flex-wrap: wrap;
@@ -24,7 +25,8 @@
 		}
 	</style>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+	<script src="{{ asset('js/app.js') }}" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
     <title>{{ config('app.name') }}</title>
 </head>
 <body>
