@@ -66,3 +66,7 @@ Route::get('/transitions', function () {
 Route::get('/state-transitions', function () {
     return view('vue.state-transitions');
 })->name('State Transitions');
+
+Route::get('/vuex-state', function () {
+    return view('vue.vuex-state');
+})->name('Vuex - State');

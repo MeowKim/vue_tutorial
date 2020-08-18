@@ -38,12 +38,16 @@ const store = new Vuex.Store({
     mutations: {
         increment(state) {
             state.count++
+        },
+        decrement(state) {
+            state.count--
         }
     }
 })
 
 const app = new Vue({
     el: '#app',
+    store,
 })
 
 console.log('before commit: ' + store.state.count)
