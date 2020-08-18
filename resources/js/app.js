@@ -31,6 +31,21 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment(state) {
+            state.count++
+        }
+    }
+})
+
 const app = new Vue({
     el: '#app',
 })
+
+console.log('before commit: ' + store.state.count)
+store.commit('increment')
+console.log('after commit: ' + store.state.count)
