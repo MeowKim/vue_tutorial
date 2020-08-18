@@ -33,15 +33,20 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const store = new Vuex.Store({
     state: {
-        count: 0
+        count: 0,
+        todos: [
+            { id: 1, text: '...', done: true },
+            { id: 2, text: '...', done: false },
+        ]
     },
     mutations: {
-        increment(state) {
-            state.count++
-        },
-        decrement(state) {
-            state.count--
-        }
+        increment: state => state.count++,
+        decrement: state => state.count--
+    },
+    getters: {
+        doneTodos: state => state.todos.filter(todo => todo.done),
+        doneTodosCount: (state, getters) => getters.doneTodos.length,
+        getTodoById: state => id => state.todos.find(todo => todo.id === id)
     }
 })
 
@@ -50,6 +55,14 @@ const app = new Vue({
     store,
 })
 
+// state
 console.log('before commit: ' + store.state.count)
 store.commit('increment')
 console.log('after commit: ' + store.state.count)
+
+// getters
+console.log('done todos: ' + JSON.stringify(store.getters.doneTodos))
+// property-style access
+console.log('done todos count: ' + store.getters.doneTodosCount)
+// method-style access
+console.log('find todo by id 2: ' + JSON.stringify(store.getters.getTodoById(2)))

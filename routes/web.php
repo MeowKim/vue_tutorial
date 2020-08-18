@@ -70,3 +70,7 @@ Route::get('/state-transitions', function () {
 Route::get('/vuex-state', function () {
     return view('vue.vuex-state');
 })->name('Vuex - State');
+
+Route::get('/vuex-getters', function () {
+    return view('vue.vuex-getters');
+})->name('Vuex - Getters');
