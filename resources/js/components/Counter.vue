@@ -5,14 +5,23 @@
 		<p>
 			<button @click="increment">+</button>
 			<button @click="decrement">-</button>
+			<button @click="incrementBy(payload)">+ {{ payload.amount }}</button>
+			<button @click="resetToZero">reset</button>
 		</p>
 	</section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
+	data: function() {
+		return {
+			payload: {
+				amount: 10
+			}
+		}
+	},
 	// computed: {
 	// 	count: function() {
 	// 		return this.$store.state.count
@@ -28,7 +37,13 @@ export default {
 		},
 		decrement: function() {
 			this.$store.commit('decrement')
-		}
+		},
+		...mapMutations([
+			'incrementBy'
+		]),
+		...mapMutations({
+			resetToZero: 'reset'
+		})
 	}
 }
 </script>

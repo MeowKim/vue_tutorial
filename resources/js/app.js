@@ -14,6 +14,8 @@ window.Vue = require('vue')
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
+import store from './store'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -31,38 +33,33 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const store = new Vuex.Store({
-    state: {
-        count: 0,
-        todos: [
-            { id: 1, text: '...', done: true },
-            { id: 2, text: '...', done: false },
-        ]
-    },
-    mutations: {
-        increment: state => state.count++,
-        decrement: state => state.count--
-    },
-    getters: {
-        doneTodos: state => state.todos.filter(todo => todo.done),
-        doneTodosCount: (state, getters) => getters.doneTodos.length,
-        getTodoById: state => id => state.todos.find(todo => todo.id === id)
-    }
-})
-
 const app = new Vue({
     el: '#app',
     store,
 })
 
-// state
+// State
 console.log('before commit: ' + store.state.count)
 store.commit('increment')
 console.log('after commit: ' + store.state.count)
 
-// getters
+// Getters
 console.log('done todos: ' + JSON.stringify(store.getters.doneTodos))
 // property-style access
 console.log('done todos count: ' + store.getters.doneTodosCount)
 // method-style access
 console.log('find todo by id 2: ' + JSON.stringify(store.getters.getTodoById(2)))
+
+// Mutations
+// commit with payload
+store.commit('incrementBy', { amount: 10 })
+console.log('after commit incrementBy 10: ' + store.state.count)
+// object-style commit
+store.commit({
+    type: 'incrementBy',
+    amount: 5
+})
+console.log('after commit incrementBy 5: ' + store.state.count)
+// using constatns for mutation types
+store.commit('reset')
+console.log('after reset: ' + store.state.count)

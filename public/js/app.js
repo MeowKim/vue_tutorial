@@ -2248,6 +2248,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
 //
 //
 //
@@ -2261,6 +2269,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      payload: {
+        amount: 10
+      }
+    };
+  },
   // computed: {
   // 	count: function() {
   // 		return this.$store.state.count
@@ -2272,14 +2287,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     countAlias: 'count'
   }),
-  methods: {
+  methods: _objectSpread(_objectSpread({
     increment: function increment() {
       this.$store.commit('increment');
     },
     decrement: function decrement() {
       this.$store.commit('decrement');
     }
-  }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['incrementBy'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])({
+    resetToZero: 'reset'
+  }))
 });
 
 /***/ }),
@@ -40197,7 +40214,21 @@ var render = function() {
     _c("p", [
       _c("button", { on: { click: _vm.increment } }, [_vm._v("+")]),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.decrement } }, [_vm._v("-")])
+      _c("button", { on: { click: _vm.decrement } }, [_vm._v("-")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          on: {
+            click: function($event) {
+              return _vm.incrementBy(_vm.payload)
+            }
+          }
+        },
+        [_vm._v("+ " + _vm._s(_vm.payload.amount))]
+      ),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.resetToZero } }, [_vm._v("reset")])
     ])
   ])
 }
@@ -55233,6 +55264,7 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -55247,6 +55279,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -55266,59 +55299,35 @@ files.keys().map(function (key) {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
-  state: {
-    count: 0,
-    todos: [{
-      id: 1,
-      text: '...',
-      done: true
-    }, {
-      id: 2,
-      text: '...',
-      done: false
-    }]
-  },
-  mutations: {
-    increment: function increment(state) {
-      return state.count++;
-    },
-    decrement: function decrement(state) {
-      return state.count--;
-    }
-  },
-  getters: {
-    doneTodos: function doneTodos(state) {
-      return state.todos.filter(function (todo) {
-        return todo.done;
-      });
-    },
-    doneTodosCount: function doneTodosCount(state, getters) {
-      return getters.doneTodos.length;
-    },
-    getTodoById: function getTodoById(state) {
-      return function (id) {
-        return state.todos.find(function (todo) {
-          return todo.id === id;
-        });
-      };
-    }
-  }
-});
 var app = new Vue({
   el: '#app',
-  store: store
-}); // state
+  store: _store__WEBPACK_IMPORTED_MODULE_1__["default"]
+}); // State
 
-console.log('before commit: ' + store.state.count);
-store.commit('increment');
-console.log('after commit: ' + store.state.count); // getters
+console.log('before commit: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count);
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].commit('increment');
+console.log('after commit: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count); // Getters
 
-console.log('done todos: ' + JSON.stringify(store.getters.doneTodos)); // property-style access
+console.log('done todos: ' + JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_1__["default"].getters.doneTodos)); // property-style access
 
-console.log('done todos count: ' + store.getters.doneTodosCount); // method-style access
+console.log('done todos count: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].getters.doneTodosCount); // method-style access
 
-console.log('find todo by id 2: ' + JSON.stringify(store.getters.getTodoById(2)));
+console.log('find todo by id 2: ' + JSON.stringify(_store__WEBPACK_IMPORTED_MODULE_1__["default"].getters.getTodoById(2))); // Mutations
+// commit with payload
+
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].commit('incrementBy', {
+  amount: 10
+});
+console.log('after commit incrementBy 10: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count); // object-style commit
+
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].commit({
+  type: 'incrementBy',
+  amount: 5
+});
+console.log('after commit incrementBy 5: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count); // using constatns for mutation types
+
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].commit('reset');
+console.log('after reset: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count);
 
 /***/ }),
 
@@ -56490,6 +56499,86 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Watcher_vue_vue_type_template_id_2906c521___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/mutation-types.js":
+/*!****************************************!*\
+  !*** ./resources/js/mutation-types.js ***!
+  \****************************************/
+/*! exports provided: RESET */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET", function() { return RESET; });
+var RESET = 'reset';
+
+/***/ }),
+
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _mutation_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutation-types */ "./resources/js/mutation-types.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+  state: {
+    count: 0,
+    todos: [{
+      id: 1,
+      text: '...',
+      done: true
+    }, {
+      id: 2,
+      text: '...',
+      done: false
+    }]
+  },
+  getters: {
+    doneTodos: function doneTodos(state) {
+      return state.todos.filter(function (todo) {
+        return todo.done;
+      });
+    },
+    doneTodosCount: function doneTodosCount(state, getters) {
+      return getters.doneTodos.length;
+    },
+    getTodoById: function getTodoById(state) {
+      return function (id) {
+        return state.todos.find(function (todo) {
+          return todo.id === id;
+        });
+      };
+    }
+  },
+  mutations: _defineProperty({
+    increment: function increment(state) {
+      return state.count++;
+    },
+    decrement: function decrement(state) {
+      return state.count--;
+    },
+    incrementBy: function incrementBy(state, payload) {
+      return state.count += payload.amount;
+    }
+  }, _mutation_types__WEBPACK_IMPORTED_MODULE_2__["RESET"], function (state) {
+    return state.count = 0;
+  })
+}));
 
 /***/ }),
 
