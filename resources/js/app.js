@@ -63,3 +63,20 @@ console.log('after commit incrementBy 5: ' + store.state.count)
 // using constatns for mutation types
 store.commit('reset')
 console.log('after reset: ' + store.state.count)
+
+// Actions
+store.dispatch('incrementAsync')
+// dispatch with payload
+store.dispatch('incrementByAsync', { amount: 5 })
+// object-style dispatch
+store.dispatch({
+    type: 'incrementByAsync', 
+    amount: 5
+})
+// composing actions
+store.dispatch('promiseIncrementAsync').then(() => {
+    console.log('PromiseIncrementAsync end')
+})
+store.dispatch('chainIncrementAsync').then(() => {
+    console.log('chainIncrementAsync end')
+})

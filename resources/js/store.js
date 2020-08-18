@@ -21,5 +21,24 @@ export default new Vuex.Store({
         decrement: state => state.count--,
 		incrementBy: (state, payload) => state.count += payload.amount,
 		[MUTATIONS.RESET]: state => state.count = 0
-    }    
+	},
+	actions: {
+		incrementAsync: ({ commit }) => setTimeout(() => { 
+			console.log('incrementAsync')
+			commit('increment')			
+		}, 1000),
+		incrementByAsync: ({ commit }, payload) => setTimeout(() => { 
+			console.log('incrementByAsync(' + JSON.stringify(payload) + ')')
+			commit('incrementBy', payload)			
+		}, 500),
+		promiseIncrementAsync: ({ commit }) => new Promise((resolve, reject) => setTimeout(() => {
+			console.log('promiseIncrementAsync')
+			commit('increment')			
+			resolve()
+		}), 1000),
+		chainIncrementAsync: ({ dispatch, commit }) => {
+			console.log('chainIncrementAsync')
+			dispatch('promiseIncrementAsync').then(() => commit('increment'))
+		}
+	}
 })

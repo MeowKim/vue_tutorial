@@ -2267,6 +2267,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2287,7 +2289,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     countAlias: 'count'
   }),
-  methods: _objectSpread(_objectSpread({
+  methods: _objectSpread(_objectSpread(_objectSpread(_objectSpread({
     increment: function increment() {
       this.$store.commit('increment');
     },
@@ -2296,6 +2298,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['incrementBy'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])({
     resetToZero: 'reset'
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['incrementAsync'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
+    asyncPlusTen: 'incrementByAsync'
   }))
 });
 
@@ -40228,7 +40232,21 @@ var render = function() {
         [_vm._v("+ " + _vm._s(_vm.payload.amount))]
       ),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.resetToZero } }, [_vm._v("reset")])
+      _c("button", { on: { click: _vm.resetToZero } }, [_vm._v("reset")]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.incrementAsync } }, [_vm._v("async +")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          on: {
+            click: function($event) {
+              return _vm.asyncPlusTen(_vm.payload)
+            }
+          }
+        },
+        [_vm._v("async +10")]
+      )
     ])
   ])
 }
@@ -55327,7 +55345,25 @@ _store__WEBPACK_IMPORTED_MODULE_1__["default"].commit({
 console.log('after commit incrementBy 5: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count); // using constatns for mutation types
 
 _store__WEBPACK_IMPORTED_MODULE_1__["default"].commit('reset');
-console.log('after reset: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count);
+console.log('after reset: ' + _store__WEBPACK_IMPORTED_MODULE_1__["default"].state.count); // Actions
+
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].dispatch('incrementAsync'); // dispatch with payload
+
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].dispatch('incrementByAsync', {
+  amount: 5
+}); // object-style dispatch
+
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].dispatch({
+  type: 'incrementByAsync',
+  amount: 5
+}); // composing actions
+
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].dispatch('promiseIncrementAsync').then(function () {
+  console.log('PromiseIncrementAsync end');
+});
+_store__WEBPACK_IMPORTED_MODULE_1__["default"].dispatch('chainIncrementAsync').then(function () {
+  console.log('chainIncrementAsync end');
+});
 
 /***/ }),
 
@@ -56577,7 +56613,41 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     }
   }, _mutation_types__WEBPACK_IMPORTED_MODULE_2__["RESET"], function (state) {
     return state.count = 0;
-  })
+  }),
+  actions: {
+    incrementAsync: function incrementAsync(_ref) {
+      var commit = _ref.commit;
+      return setTimeout(function () {
+        console.log('incrementAsync');
+        commit('increment');
+      }, 1000);
+    },
+    incrementByAsync: function incrementByAsync(_ref2, payload) {
+      var commit = _ref2.commit;
+      return setTimeout(function () {
+        console.log('incrementByAsync(' + JSON.stringify(payload) + ')');
+        commit('incrementBy', payload);
+      }, 500);
+    },
+    promiseIncrementAsync: function promiseIncrementAsync(_ref3) {
+      var commit = _ref3.commit;
+      return new Promise(function (resolve, reject) {
+        return setTimeout(function () {
+          console.log('promiseIncrementAsync');
+          commit('increment');
+          resolve();
+        });
+      }, 1000);
+    },
+    chainIncrementAsync: function chainIncrementAsync(_ref4) {
+      var dispatch = _ref4.dispatch,
+          commit = _ref4.commit;
+      console.log('chainIncrementAsync');
+      dispatch('promiseIncrementAsync').then(function () {
+        return commit('increment');
+      });
+    }
+  }
 }));
 
 /***/ }),

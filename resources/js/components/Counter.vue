@@ -7,12 +7,14 @@
 			<button @click="decrement">-</button>
 			<button @click="incrementBy(payload)">+ {{ payload.amount }}</button>
 			<button @click="resetToZero">reset</button>
+			<button @click="incrementAsync">async +</button>
+			<button @click="asyncPlusTen(payload)">async +10</button>
 		</p>
 	</section>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
 	data: function() {
@@ -43,6 +45,12 @@ export default {
 		]),
 		...mapMutations({
 			resetToZero: 'reset'
+		}),
+		...mapActions([
+			'incrementAsync'
+		]),
+		...mapActions({
+			asyncPlusTen: 'incrementByAsync'
 		})
 	}
 }
