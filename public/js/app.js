@@ -2247,6 +2247,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -2258,12 +2259,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: {
-    count: function count() {
-      return this.$store.state.count;
-    }
-  },
+  // computed: {
+  // 	count: function() {
+  // 		return this.$store.state.count
+  // 	}
+  // },
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+    count: function count(state) {
+      return state.count;
+    },
+    countAlias: 'count'
+  }),
   methods: {
     increment: function increment() {
       this.$store.commit('increment');
