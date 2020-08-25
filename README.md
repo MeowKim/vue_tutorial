@@ -7,6 +7,7 @@ This repo is based on `Laravel` with vue scaffolding and including vue, vuex, vu
 ## :pushpin: Environments
 - Laravel `7.22.4`
 - @vue/cli `4.4.6`
+- vue `2.6.11`
 - vuex `3.5.1`
 - vue-router `3.4.3`
 
