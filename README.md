@@ -1,5 +1,5 @@
 ## :pencil: About
-Sample code repository to learn about **[Vue.js](https://vuejs.org/)**.  
+Sample code repository to learn about **[Vue.js](https://vuejs.org/)** with tutorials.  
 This repo is based on `Laravel` with vue scaffolding and including vue, vuex, vue-router.  
 
 
