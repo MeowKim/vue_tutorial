@@ -61,7 +61,7 @@
 						<ul class="navbar-nav mr-auto">
 						@foreach ($value as $route)
 							<li class="nav-item">
-								<a class="nav-link" href="/{{ $route['uri'] }}">{{ $route['name'] }}</a>
+								<a class="nav-link {{ request()->route()->getName() === $route['name'] ? 'active' : '' }}" href="/{{ $route['uri'] }}">{{ $route['name'] }}</a>
 							</li>
 						@endforeach
 						</ul>
