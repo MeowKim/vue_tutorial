@@ -19,58 +19,65 @@ Route::get('/', function () {
 })->name('Home');
 
 // Routes for examples
-Route::get('/watcher', function () {
-    return view('vue.watcher');
-})->name('Watcher');
+// vue essentilas
+Route::group(['prefix' => 'vue'], function () {
+    Route::get('/watcher', function () {
+        return view('vue.watcher');
+    })->name('Watcher');
 
-Route::get('/class-bindings', function () {
-    return view('vue.class-bindings');
-})->name('Class Bindings');
+    Route::get('/class-bindings', function () {
+        return view('vue.class-bindings');
+    })->name('Class Bindings');
 
-Route::get('/style-bindings', function () {
-    return view('vue.style-bindings');
-})->name('Style Bindings');
+    Route::get('/style-bindings', function () {
+        return view('vue.style-bindings');
+    })->name('Style Bindings');
 
-Route::get('/conditional-rendering', function () {
-    return view('vue.conditional-rendering');
-})->name('Conditional Rendering');
+    Route::get('/conditional-rendering', function () {
+        return view('vue.conditional-rendering');
+    })->name('Conditional Rendering');
 
-Route::get('/list-rendering', function () {
-    return view('vue.list-rendering');
-})->name('List Rendering');
+    Route::get('/list-rendering', function () {
+        return view('vue.list-rendering');
+    })->name('List Rendering');
 
-Route::get('/event-handling', function () {
-    return view('vue.event-handling');
-})->name('Event Handling');
+    Route::get('/event-handling', function () {
+        return view('vue.event-handling');
+    })->name('Event Handling');
 
-Route::get('/form-input-bindings', function () {
-    return view('vue.form-input-bindings');
-})->name('Form Input Bindings');
+    Route::get('/form-input-bindings', function () {
+        return view('vue.form-input-bindings');
+    })->name('Form Input Bindings');
 
-Route::get('/components', function () {
-    return view('vue.components');
-})->name('Components');
+    Route::get('/components', function () {
+        return view('vue.components');
+    })->name('Components');
 
-Route::get('/keep-alive', function () {
-    return view('vue.keep-alive');
-})->name('Keep Alive');
+    Route::get('/keep-alive', function () {
+        return view('vue.keep-alive');
+    })->name('Keep Alive');
 
-Route::get('/async-components', function () {
-    return view('vue.async-components');
-})->name('Async Components');
+    Route::get('/async-components', function () {
+        return view('vue.async-components');
+    })->name('Async Components');
 
-Route::get('/transitions', function () {
-    return view('vue.transitions');
-})->name('Transitions');
+    Route::get('/transitions', function () {
+        return view('vue.transitions');
+    })->name('Transitions');
 
-Route::get('/state-transitions', function () {
-    return view('vue.state-transitions');
-})->name('State Transitions');
+    Route::get('/state-transitions', function () {
+        return view('vue.state-transitions');
+    })->name('State Transitions');
+});
 
-Route::get('/vuex-state', function () {
-    return view('vue.vuex-state');
-})->name('Vuex - State');
 
-Route::get('/vuex-getters', function () {
-    return view('vue.vuex-getters');
-})->name('Vuex - Getters');
+// vuex
+Route::group(['prefix' => 'vuex'], function () {
+    Route::get('/state', function () {
+        return view('vue.vuex-state');
+    })->name('Vuex - State');
+
+    Route::get('/getters', function () {
+        return view('vue.vuex-getters');
+    })->name('Vuex - Getters');
+});
