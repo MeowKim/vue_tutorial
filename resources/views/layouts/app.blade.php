@@ -57,7 +57,6 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Left Side Of Navbar -->
 					@foreach ($routes as $key=>$value)
-					<div>
 						<h4 class="navbar-brand">{{ $key }}</h4>
 						<ul class="navbar-nav mr-auto">
 						@foreach ($value as $route)
@@ -66,7 +65,6 @@
 							</li>
 						@endforeach
 						</ul>
-					</div>
 					@endforeach
 				</div>
 			</div>
