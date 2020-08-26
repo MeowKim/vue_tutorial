@@ -54,7 +54,7 @@
 					<ul class="navbar-nav mr-auto">
 						@foreach ($routes as $route)
 						<li class="nav-item">
-							<a class="nav-link" href="{{ $route['uri'] }}">{{ $route['name'] }}</a>
+							<a class="nav-link" href="/{{ $route['uri'] }}">{{ $route['name'] }}</a>
 						</li>
 						@endforeach
 					</ul>
