@@ -27,12 +27,16 @@ class AppServiceProvider extends ServiceProvider
     {
         // Get all the web routes
         View::composer('*', function ($view) {
-            $routes = collect(Route::getRoutes())
+            $routes = array();
+
+            $collection = collect(Route::getRoutes())
                 ->reject(function ($route) {
-                    return preg_match("/^\_ignition\//", $route->uri) || preg_match("/^api\//", $route->uri) || preg_match("/^\/$/", $route->uri);
+                    return preg_match("/^\_ignition\//", $route->uri)
+                        || preg_match("/^api\//", $route->uri)
+                        || preg_match("/^\/$/", $route->uri);
                 })
                 ->map(function ($route) {
-                    return array(
+                    return [
                         'domain' => $route->domain(),
                         'method' => implode('|', $route->methods()),
                         'uri'    => $route->uri(),
@@ -42,8 +46,12 @@ class AppServiceProvider extends ServiceProvider
                             ->map(function ($middleware) {
                                 return $middleware instanceof Closure ? 'Closure' : $middleware;
                             })->implode(','),
-                    );
+                    ];
                 });
+            foreach ($collection as $item) {
+                preg_match('/^(.*?)\/.*$/', $item['uri'], $matches);
+                $routes[preg_replace('/\//', '', $matches[1])][] = $item;
+            }
 
             $view->with('routes', $routes);
         });

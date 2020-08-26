@@ -75,9 +75,9 @@ Route::group(['prefix' => 'vue'], function () {
 Route::group(['prefix' => 'vuex'], function () {
     Route::get('/state', function () {
         return view('vue.vuex-state');
-    })->name('Vuex - State');
+    })->name('State');
 
     Route::get('/getters', function () {
         return view('vue.vuex-getters');
-    })->name('Vuex - Getters');
+    })->name('Getters');
 });

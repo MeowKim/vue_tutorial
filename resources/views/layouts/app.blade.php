@@ -15,6 +15,11 @@
 		.navbar-nav {
 			flex-wrap: wrap;
 		}
+
+		.navbar-collapse h4 {
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+		}
 		
 		code {
 			margin: 0 2px;
@@ -51,13 +56,18 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Left Side Of Navbar -->
-					<ul class="navbar-nav mr-auto">
-						@foreach ($routes as $route)
-						<li class="nav-item">
-							<a class="nav-link" href="/{{ $route['uri'] }}">{{ $route['name'] }}</a>
-						</li>
+					@foreach ($routes as $key=>$value)
+					<div>
+						<h4 class="navbar-brand">{{ $key }}</h4>
+						<ul class="navbar-nav mr-auto">
+						@foreach ($value as $route)
+							<li class="nav-item">
+								<a class="nav-link" href="/{{ $route['uri'] }}">{{ $route['name'] }}</a>
+							</li>
 						@endforeach
-					</ul>
+						</ul>
+					</div>
+					@endforeach
 				</div>
 			</div>
 		</nav>
