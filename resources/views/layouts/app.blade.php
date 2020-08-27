@@ -16,6 +16,10 @@
 			flex-wrap: wrap;
 		}
 
+		.navbar-collapse >* {
+			align-self: flex-start;
+		}
+
 		.navbar-collapse h4 {
 			padding-left: 0.5rem;
 			padding-right: 0.5rem;
