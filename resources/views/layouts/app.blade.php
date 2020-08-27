@@ -33,7 +33,7 @@
 			border-radius: 2px;
 		}
 
-		#app >.container {
+		section.container {
 			margin-bottom: 50px;
 		}
 	</style>
@@ -73,9 +73,9 @@
 				</div>
 			</div>
 		</nav>
-		<div class="container">
+		<section class="container">
 			@yield('content')
-		</div>
+		</section>
 	</div>
 </body>
 </html>
