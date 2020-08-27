@@ -33,7 +33,7 @@
 			border-radius: 2px;
 		}
 
-		.container {
+		#app >.container {
 			margin-bottom: 50px;
 		}
 	</style>
