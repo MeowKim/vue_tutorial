@@ -17,6 +17,24 @@ Vue.use(Vuex)
 import store from './store'
 
 /**
+ * Add Vue-router
+ */
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+
+const routes = [
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+]
+
+const router = new VueRouter({
+    routes
+})
+
+/**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
@@ -36,6 +54,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 const app = new Vue({
     el: '#app',
     store,
+    router,
 })
 
 // State

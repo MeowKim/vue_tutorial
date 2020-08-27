@@ -81,3 +81,11 @@ Route::group(['prefix' => 'vuex'], function () {
         return view('vue.vuex-getters');
     })->name('Getters');
 });
+
+
+// vue-router
+Route::group(['prefix' => 'vue-router'], function () {
+    Route::get('simple', function () {
+        return view('vue.router-simple');
+    })->name('Simple routes');
+});
